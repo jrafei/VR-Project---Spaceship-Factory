@@ -1,0 +1,25 @@
+# Fichiers générés par Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Configuration des IDE
+.vs/
+.idea/
+*.suo
+*.user
+*.userprefs
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.swp
+
+# Fichiers Unity auto-générés
+*.aps
+*.apk
+*.unitypackage
