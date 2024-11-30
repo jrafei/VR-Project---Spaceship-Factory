@@ -1,37 +1,65 @@
-using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+﻿using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(XRGrabInteractable))]
-public class InteractableItem : MonoBehaviour
-{
-    private Rigidbody rb;
-    private XRGrabInteractable grabInteractable;
+public class InteractableItem : MonoBehaviour {
+	public Rigidbody rigidbody;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        grabInteractable = GetComponent<XRGrabInteractable>();
+	private bool currentlyInteracting;
 
-        grabInteractable.selectEntered.AddListener(OnGrab);
-        grabInteractable.selectExited.AddListener(OnRelease);
-    }
+	private float velocityFactor = 1000f;
+	private Vector3 posDelta;
 
-    private void OnGrab(SelectEnterEventArgs args)
-    {
-        Debug.Log("Item grabbed");
-        rb.isKinematic = true;
-    }
+	private float rotationFactor = 4f;
+	private Quaternion rotationDelta;
+	private float angle;
+	private Vector3 axis;
+	public bool right;
+	private GameObject attachedWand;
 
-    private void OnRelease(SelectExitEventArgs args)
-    {
-        Debug.Log("Item released");
-        rb.isKinematic = false;
-    }
+	private Transform interactionPoint;
 
-    private void OnDestroy()
-    {
-        grabInteractable.selectEntered.RemoveListener(OnGrab);
-        grabInteractable.selectExited.RemoveListener(OnRelease);
-    }
+	// Use this for initialization
+	void Start () {
+		rigidbody = GetComponent<Rigidbody>();
+		interactionPoint = new GameObject().transform;
+		velocityFactor /= rigidbody.mass;
+		rotationFactor /= rigidbody.mass;
+	}
+
+	// Update is called once per frame
+	void Update() {
+		if (attachedWand && currentlyInteracting) {
+			posDelta = attachedWand.transform.position - interactionPoint.position;
+			this.rigidbody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;
+
+			rotationDelta = attachedWand.transform.rotation * Quaternion.Inverse(interactionPoint.rotation);
+			rotationDelta.ToAngleAxis(out angle, out axis);
+
+			if (angle > 180) {
+				angle -= 360;
+			}
+
+			this.rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+		}
+	}
+
+	public void BeginInteraction(GameObject wand) {
+		attachedWand = wand;
+		interactionPoint.position = wand.transform.position;
+		interactionPoint.rotation = wand.transform.rotation;
+		interactionPoint.SetParent(transform, true);
+
+		currentlyInteracting = true;
+	}
+
+	public void EndInteraction(GameObject wand) {
+		if (wand == attachedWand) {
+			attachedWand = null;
+			currentlyInteracting = false;
+		}
+	}
+
+	public bool IsInteracting() {
+		return currentlyInteracting;
+	}
 }
