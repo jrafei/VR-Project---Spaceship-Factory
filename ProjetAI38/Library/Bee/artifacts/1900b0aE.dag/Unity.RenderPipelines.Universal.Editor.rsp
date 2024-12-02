@@ -117,10 +117,11 @@
 -define:ENABLE_INPUT_SYSTEM
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:USE_INPUT_SYSTEM_POSE_CONTROL
+-define:USE_INPUT_SYSTEM_POSE_CONTROL
 -define:UNITY_POST_PROCESSING_STACK_V2
--define:USE_STICK_CONTROL_THUMBSTICKS
 -define:ENABLE_XR_MODULE
 -define:XR_MANAGEMENT_4_0_1_OR_NEWER
+-define:HAS_VFX_GRAPH
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
@@ -352,6 +353,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.ShaderGraph.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VisualEffectGraph.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.Management.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.XR.Management.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.TestRunner.ref.dll"
