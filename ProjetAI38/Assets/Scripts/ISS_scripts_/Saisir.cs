@@ -1,34 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class Saisir : MonoBehaviour
 {
     [SerializeField] private bool droite = false;
-    private XRBaseInteractor interactor;
-    private XRGrabInteractable closestItem;
-    private XRGrabInteractable interactingItem;
-    private HashSet<XRGrabInteractable> objectsHoveringOver = new HashSet<XRGrabInteractable>();
+    private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable closestItem;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable interactingItem;
+    private HashSet<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable> objectsHoveringOver = new HashSet<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
 
-    private IXRSelectInteractor xrInteractor;
-    private IXRSelectInteractable xrInteractable;
+    private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor xrInteractor;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable xrInteractable;
 
 
-    //Adaption du script Saisir initial avec mise à jour par le XR Interaction Toolkit
+    //Adaption du script Saisir initial avec mise ï¿½ jour par le XR Interaction Toolkit
     void Start()
     {
-        interactor = GetComponent<XRBaseInteractor>();
+        interactor = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor>();
         if (interactor == null)
         {
-            Debug.LogError("XRBaseInteractor nécessaire pour ce GO.");
+            Debug.LogError("XRBaseInteractor nï¿½cessaire pour ce GO.");
         }
-        xrInteractor = interactor as IXRSelectInteractor;
-        xrInteractable = interactingItem as IXRSelectInteractable;
+        xrInteractor = interactor as UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor;
+        xrInteractable = interactingItem as UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var interactable = other.GetComponent<XRGrabInteractable>();
+        var interactable = other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (interactable != null && !objectsHoveringOver.Contains(interactable))
         {
             objectsHoveringOver.Add(interactable);
@@ -38,7 +38,7 @@ public class Saisir : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var interactable = other.GetComponent<XRGrabInteractable>();
+        var interactable = other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (interactable != null)
         {
             objectsHoveringOver.Remove(interactable);
@@ -68,7 +68,7 @@ public class Saisir : MonoBehaviour
         }
     }
 
-    private void UpdateClosestItem(XRGrabInteractable newInteractable)
+    private void UpdateClosestItem(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable newInteractable)
     {
         if (closestItem == null ||
             (newInteractable.transform.position - transform.position).sqrMagnitude <
