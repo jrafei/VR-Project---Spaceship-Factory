@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Anchor
   - Agent
+  - Attachable
+  - r_wing
+  - l_wing
   layers:
   - Default
   - TransparentFX
