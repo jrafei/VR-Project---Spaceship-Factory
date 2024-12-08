@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638685795402677266
-    m_Hash: 46861201
+      ticks: 638692977057894969
+    m_Hash: 4099662948
   m_LockFileStatus:
     m_FilePath: C:/Users/UTCPRET/Desktop/projet-ai38/ProjetAI38/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638687389049800757
-    m_Hash: 4288553441
+      ticks: 638692977058167419
+    m_Hash: 3620611541
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -376,7 +376,7 @@ m_ResolvedPackages:
   - name: com.unity.xr.oculus
     version: 4.2.0
   - name: com.unity.xr.management
-    version: 4.4.0
+    version: 4.5.0
   - name: com.unity.modules.vr
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
@@ -1677,12 +1677,12 @@ m_ResolvedPackages:
   isDeprecated: 0
   deprecationMessage: 
   fingerprint: 
-- packageId: com.unity.xr.management@4.4.0
+- packageId: com.unity.xr.management@4.5.0
   testable: 0
   isDirectDependency: 1
-  version: 4.4.0
+  version: 4.5.0
   source: 1
-  resolvedPath: C:\Users\UTCPRET\Desktop\projet-ai38\ProjetAI38\Library\PackageCache\com.unity.xr.management@4.4.0
+  resolvedPath: C:\Users\UTCPRET\Desktop\projet-ai38\ProjetAI38\Library\PackageCache\com.unity.xr.management@4.5.0
   assetPath: Packages/com.unity.xr.management
   name: com.unity.xr.management
   displayName: XR Plugin Management
@@ -1799,13 +1799,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638224209960000000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.xr.management@4.4/manual/index.html
+  datePublishedTicks: 638560264920000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.xr.management@4.5/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/xr.sdk.management.git
-    revision: 6fefbe0e3deca93f6eb53e66ca554b58f2acf0d8
+    revision: fa86b200cd8cd1b75a57534d44d41cc7b6b7f58d
     path: 
   unityLifecycle:
     version: 4.4.0
@@ -1910,7 +1910,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.subsystems
     version: 1.0.0
   - name: com.unity.xr.management
-    version: 4.4.0
+    version: 4.5.0
   - name: com.unity.modules.vr
     version: 1.0.0
   - name: com.unity.xr.legacyinputhelpers
@@ -5375,7 +5375,7 @@ m_ResolvedPackages:
     version: 4.4.0
   resolvedDependencies:
   - name: com.unity.xr.management
-    version: 4.4.0
+    version: 4.5.0
   - name: com.unity.modules.vr
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
