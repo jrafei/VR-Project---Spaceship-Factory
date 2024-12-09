@@ -19,6 +19,8 @@ public class AttachPoint_R_Wing : MonoBehaviour
 
     private void AttachObject(GameObject obj)
     {
+        // Sauvegarder l'échelle d'origine de l'objet
+        Vector3 originalScale = obj.transform.localScale;
 
         // Désactiver tous les scripts sur l'objet
         MonoBehaviour[] scripts = obj.GetComponents<MonoBehaviour>();
@@ -42,22 +44,19 @@ public class AttachPoint_R_Wing : MonoBehaviour
         }
 
         // Faire de l'objet un enfant de la base
-        obj.transform.SetParent(transform, false);
+        obj.transform.SetParent(transform, true);
 
 
         // Définir la position et la rotation
         obj.transform.position = attachTransform.position;
-        obj.transform.localRotation = Quaternion.Euler(-269.9f, -56.8f, -55.3f);
+        obj.transform.rotation = Quaternion.Euler(-181.37f, -87.200f, -88.573f);
 
         // Baisser la position locale en Y
         Vector3 localPosition = obj.transform.localPosition;
-        localPosition.x -= 0.3f; // Par exemple, abaisse de 0.5 unités
-        localPosition.z -= 0.2f; // Par exemple, abaisse de 0.5 unités
-        localPosition.y += 1f; // Par exemple, abaisse de 0.5 unités
+        localPosition.x -= 0.35f; // Par exemple, abaisse de 0.5 unités
+        localPosition.z -= 0.50f; // Par exemple, abaisse de 0.5 unités
+        localPosition.y -= 0f; // Par exemple, abaisse de 0.5 unités
         obj.transform.localPosition = localPosition;
-
-
-
 
         isOccupied = true; // Marque ce point comme occupé
 
