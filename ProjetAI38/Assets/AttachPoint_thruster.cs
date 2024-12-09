@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class AttachPoint_L_Wing : MonoBehaviour
+public class AttachPoint_thruster: MonoBehaviour
 {
     public Transform attachTransform; // Point d'attache précis
-    public string requiredTag = "l_wing"; // Tag des objets qui peuvent s'accrocher
-    public string indicatorTag = "l_wing_indicator"; // Tag de l'indicateur
+    public string requiredTag = "thruster"; // Tag des objets qui peuvent s'accrocher
+    public string indicatorTag = "thruster_indicator"; // Tag de l'indicateur
+
     public bool isOccupied = false; // Vérifie si un objet est déjà attaché
 
     private void OnTriggerEnter(Collider other)
@@ -53,13 +54,14 @@ public class AttachPoint_L_Wing : MonoBehaviour
 
         // Définir la position et la rotation
         obj.transform.position = attachTransform.position;
-        obj.transform.rotation = Quaternion.Euler(-181.37f, -87.200f, -627.846f);
+        obj.transform.rotation = Quaternion.Euler(0f, -87.604f, 0f);
+        obj.transform.localScale = new Vector3(0.4451622f, 0.2772959f, 0.5421051f);
 
         // Baisser la position locale en Y
         Vector3 localPosition = obj.transform.localPosition;
-        localPosition.x -= 0.389f; // Par exemple, abaisse de 0.5 unités
-        localPosition.z += 0.2f; // Par exemple, abaisse de 0.5 unités
-        localPosition.y += 0f; // Par exemple, abaisse de 0.5 unités
+        localPosition.x -= 0.374f; // Par exemple, abaisse de 0.5 unités
+        localPosition.z -= 0.269f; // Par exemple, abaisse de 0.5 unités
+        localPosition.y -= 0.209f; // Par exemple, abaisse de 0.5 unités
         obj.transform.localPosition = localPosition;
 
         isOccupied = true; // Marque ce point comme occupé

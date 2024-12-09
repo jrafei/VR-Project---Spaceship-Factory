@@ -9,6 +9,12 @@ TagManager:
   - Attachable
   - r_wing
   - l_wing
+  - convoyor
+  - Movable
+  - thruster
+  - r_wing_indicator
+  - l_wing_indicator
+  - thruster_indicator
   layers:
   - Default
   - TransparentFX

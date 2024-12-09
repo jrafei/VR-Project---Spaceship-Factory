@@ -4,6 +4,7 @@ public class AttachPoint_R_Wing : MonoBehaviour
 {
     public Transform attachTransform; // Point d'attache précis
     public string requiredTag = "r_wing"; // Tag des objets qui peuvent s'accrocher
+    public string indicatorTag = "r_wing_indicator"; // Tag de l'indicateur
     public bool isOccupied = false; // Vérifie si un objet est déjà attaché
 
     private void OnTriggerEnter(Collider other)
@@ -14,6 +15,9 @@ public class AttachPoint_R_Wing : MonoBehaviour
         {
             Debug.Log($"L'objet {other.name} est entré dans la zone de l'AttachPoint {name}.");
             AttachObject(other.gameObject);
+
+            // Désactiver le MeshRenderer de l'indicateur
+            HideIndicator();
         }
     }
 
@@ -61,5 +65,29 @@ public class AttachPoint_R_Wing : MonoBehaviour
         isOccupied = true; // Marque ce point comme occupé
 
         Debug.Log($"L'objet {obj.name} a été attaché à l'AttachPoint {name}, colliders (y compris enfants) et scripts désactivés.");
+    }
+
+    private void HideIndicator()
+    {
+        // Rechercher l'objet avec le tag "r_wing_indicator"
+        GameObject indicator = GameObject.FindGameObjectWithTag(indicatorTag);
+        if (indicator != null)
+        {
+            // Désactiver le MeshRenderer
+            MeshRenderer meshRenderer = indicator.GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                meshRenderer.enabled = false;
+                Debug.Log($"Le MeshRenderer de l'indicateur {indicator.name} a été désactivé.");
+            }
+            else
+            {
+                Debug.LogWarning($"Aucun MeshRenderer trouvé sur l'objet avec le tag {indicatorTag}.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Aucun objet trouvé avec le tag {indicatorTag}.");
+        }
     }
 }
