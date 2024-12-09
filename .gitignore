@@ -23,3 +23,12 @@
 *.aps
 *.apk
 *.unitypackage
+
+# Ignorer les fichiers générés par Unity dans Library
+ProjetAI38/Library/
+
+# Ignorer les fichiers de logs générés par Unity
+ProjetAI38/Logs/
+
+# Ignorer les fichiers spécifiques des compilateurs Unity Shader
+*.log

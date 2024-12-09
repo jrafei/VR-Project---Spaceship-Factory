@@ -508,6 +508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1212357915501692, guid: 665ef7184b39e744396710346b7c5e95, type: 3}
+      propertyPath: m_TagString
+      value: Grabbable
+      objectReference: {fileID: 0}
     - target: {fileID: 1214323230276548, guid: 665ef7184b39e744396710346b7c5e95, type: 3}
       propertyPath: m_Name
       value: module casier
@@ -606,6 +610,9 @@ PrefabInstance:
       insertIndex: 13
       addedObject: {fileID: 672350863}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1214323230276548, guid: 665ef7184b39e744396710346b7c5e95, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 525659952}
     - targetCorrespondingSourceObject: {fileID: 1658068159611030, guid: 665ef7184b39e744396710346b7c5e95, type: 3}
       insertIndex: -1
       addedObject: {fileID: 525659949}
@@ -742,6 +749,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4578507229997102, guid: 665ef7184b39e744396710346b7c5e95, type: 3}
   m_PrefabInstance: {fileID: 525659947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &525659951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1214323230276548, guid: 665ef7184b39e744396710346b7c5e95, type: 3}
+  m_PrefabInstance: {fileID: 525659947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &525659952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525659951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8173988580dc3ed48a625cb02397727f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626908777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1481,10 @@ PrefabInstance:
     - target: {fileID: 2243020123108092049, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406344995468409661, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 7434851320941268098, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_AnchorMax.y
