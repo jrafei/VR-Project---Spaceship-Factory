@@ -15,6 +15,7 @@ TagManager:
   - r_wing_indicator
   - l_wing_indicator
   - thruster_indicator
+  - core
   layers:
   - Default
   - TransparentFX

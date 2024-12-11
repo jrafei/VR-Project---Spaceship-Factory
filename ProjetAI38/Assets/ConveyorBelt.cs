@@ -8,7 +8,7 @@ public class ConveyorBelt : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Vérifier si l'objet peut être déplacé
-        if (collision.gameObject.CompareTag("Movable"))
+        if (collision.gameObject.CompareTag("core"))
         {
             MoveObject(collision.gameObject);
         }
@@ -17,7 +17,7 @@ public class ConveyorBelt : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         // Déplacer l'objet tant qu'il est sur le convoyeur
-        if (collision.gameObject.CompareTag("Movable"))
+        if (collision.gameObject.CompareTag("core"))
         {
             MoveObject(collision.gameObject);
         }
