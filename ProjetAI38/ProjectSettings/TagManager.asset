@@ -16,6 +16,10 @@ TagManager:
   - l_wing_indicator
   - thruster_indicator
   - core
+  - Plaque
+  - Object
+  - Tool
+  - Screwdriver
   layers:
   - Default
   - TransparentFX
