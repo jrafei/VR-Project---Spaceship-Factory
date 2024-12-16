@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DiffusionProfileReferences: []
-  m_MaterialReferences: []
+  m_MaterialReferences:
+  - {fileID: 2100000, guid: 3d98a726c138c0e4ca06e8bb759c3b0b, type: 2}
+  - {fileID: 2100000, guid: aac9ca603ccbbc64d91a521b048c6384, type: 2}
 --- !u!114 &-475473689650385788
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -535,8 +537,8 @@ Material:
     - _Metallic2: 0
     - _Metallic3: 0
     - _MetallicRemapMax: 0
-    - _MetallicRemapMax0: 1
-    - _MetallicRemapMax1: 1
+    - _MetallicRemapMax0: 0
+    - _MetallicRemapMax1: 0
     - _MetallicRemapMax2: 1
     - _MetallicRemapMax3: 1
     - _MetallicRemapMin: 0
@@ -669,8 +671,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor0: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor0: {r: 0.15094337, g: 0.14738336, b: 0.14738336, a: 1}
+    - _BaseColor1: {r: 0.8584906, g: 0.7821536, b: 0.16602883, a: 1}
     - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor3: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap0_MipInfo: {r: 0, g: 0, b: 0, a: 0}

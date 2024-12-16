@@ -37,7 +37,15 @@ public class AttachPoint_R_Wing : MonoBehaviour
         Collider[] colliders = obj.GetComponentsInChildren<Collider>();
         foreach (Collider col in colliders)
         {
-            col.enabled = false;
+            if (col.name != "Screw_Cross")
+            {
+                Debug.Log("Désactiver le collider de " + col.name);
+                col.enabled = false;
+            }
+            else
+            {
+                Debug.Log("Conserver le collider de " + col.name);
+            }
         }
 
         // Rendre l'objet immobile
