@@ -39,12 +39,8 @@ public class AttachPoint_R_Wing : MonoBehaviour
         {
             if (col.name != "Screw_Cross")
             {
-                Debug.Log("Désactiver le collider de " + col.name);
+               //Debug.Log("Désactiver le collider de " + col.name);
                 col.enabled = false;
-            }
-            else
-            {
-                Debug.Log("Conserver le collider de " + col.name);
             }
         }
 
