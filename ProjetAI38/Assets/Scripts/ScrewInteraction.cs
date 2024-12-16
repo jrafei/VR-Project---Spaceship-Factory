@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -102,8 +102,8 @@ public class ScrewInteraction : MonoBehaviour
         }
     }
 }
+*/
 
-/*
 
 
 using System.Collections;
@@ -170,4 +170,3 @@ public class ScrewInteraction : MonoBehaviour
         }
     }
 }
-*/
