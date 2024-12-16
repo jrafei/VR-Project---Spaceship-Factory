@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 5726885313942303742}
   - component: {fileID: 3570377354386518981}
   m_Layer: 0
-  m_Name: l_wing
+  m_Name: L_Wing
   m_TagString: l_wing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2960700275856884052}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4963771, y: -0.5272835, z: 0.48458406, w: -0.49067327}
+  m_LocalRotation: {x: -0.49637726, y: 0.527283, z: -0.48458454, w: 0.49067304}
   m_LocalPosition: {x: 15.58, y: 11.61, z: -35.04}
   m_LocalScale: {x: 1, y: 0.51627886, z: 0.3749208}
   m_ConstrainProportionsScale: 0

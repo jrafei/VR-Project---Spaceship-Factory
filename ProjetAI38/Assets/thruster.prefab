@@ -222,15 +222,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7976344614928492256, guid: 4d8da171407a87a49b7bb5b3b0918e36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.58
+      value: 19.32
       objectReference: {fileID: 0}
     - target: {fileID: 7976344614928492256, guid: 4d8da171407a87a49b7bb5b3b0918e36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.086
+      value: 11.525
       objectReference: {fileID: 0}
     - target: {fileID: 7976344614928492256, guid: 4d8da171407a87a49b7bb5b3b0918e36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.68
+      value: -36.49
       objectReference: {fileID: 0}
     - target: {fileID: 7976344614928492256, guid: 4d8da171407a87a49b7bb5b3b0918e36, type: 3}
       propertyPath: m_LocalRotation.w
@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782238499546748614, guid: 4d8da171407a87a49b7bb5b3b0918e36, type: 3}
       propertyPath: m_Name
-      value: StarSparrow_Thruster Variant
+      value: thruster
       objectReference: {fileID: 0}
     - target: {fileID: 8782238499546748614, guid: 4d8da171407a87a49b7bb5b3b0918e36, type: 3}
       propertyPath: m_TagString
