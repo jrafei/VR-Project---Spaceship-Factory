@@ -291,8 +291,6 @@ GameObject:
   - component: {fileID: 7235504106917489385}
   - component: {fileID: 5610404210464979728}
   - component: {fileID: 4700979070312735837}
-  - component: {fileID: 7553262096883722517}
-  - component: {fileID: 3528101249266737055}
   m_Layer: 0
   m_Name: Conveyor_Long
   m_TagString: convoyor
@@ -354,38 +352,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conveyorSpeed: 0.1
   endPoint: {fileID: 3908559723848519498}
---- !u!65 &7553262096883722517
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008099473114935379}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.6527739, z: 8.376455}
-  m_Center: {x: 4.9415116e-12, y: 0.32638693, z: -0.030625818}
---- !u!114 &3528101249266737055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008099473114935379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06478629d53c82f42ae68841e503ec19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conveyorSpeed: 0.1
-  endPoint: {fileID: 0}
