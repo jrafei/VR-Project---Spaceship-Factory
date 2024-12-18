@@ -770,6 +770,9 @@ MonoBehaviour:
   attachPointL_Wing: {fileID: 680595978946270400}
   attachPointR_Wing: {fileID: 6076490590560379752}
   attachPointThruster: {fileID: 26173378973106398}
+  screwObjectL: {fileID: 0}
+  screwObjectR: {fileID: 0}
+  screwObjectThruster: {fileID: 0}
 --- !u!114 &3011531025783710191
 MonoBehaviour:
   m_ObjectHideFlags: 0

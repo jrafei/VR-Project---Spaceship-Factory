@@ -21,6 +21,11 @@ TagManager:
   - Tool
   - Screwdriver
   - Fin
+  - projectile
+  - FxTemporaire
+  - screw_r
+  - screw_l
+  - screw_thruster
   layers:
   - Default
   - TransparentFX

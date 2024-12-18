@@ -1,9 +1,5 @@
-/*using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
-using Valve.VR;
-
 
 public class ScrewInteraction : MonoBehaviour
 {
@@ -11,76 +7,60 @@ public class ScrewInteraction : MonoBehaviour
     public float maxScrewDistance = 0.2f; // Distance maximale pour le vissage
     private bool isTouchingScrewdriver = false; // Indique si le tournevis est en contact
     private Transform screwdriverTip; // Référence à l'extrémité du tournevis
-    public GameObject ciblePosition; // Position de départ de la vis
+    public GameObject ciblePosition; // Position cible de la vis
     private float screwedAmount = 0f; // Distance totale vissée
-    private bool isFullyScrewed = false; // Indique si la vis est entièrement vissée
-
-    private bool button = false;
-
-
-
-    // Référence à ton action SteamVR Input
-    public SteamVR_Action_Boolean grabGripAction;
+    public bool isFullyScrewed = false; // Indique si la vis est entièrement vissée
+    private Coroutine screwingCoroutine; // Référence à la coroutine en cours
+    private Renderer screwRenderer; // Référence au Renderer de la vis
 
     void Start()
     {
-        // Initialisation de l'action
-        grabGripAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip");
+        // Récupère le Renderer de la vis
+        screwRenderer = GetComponent<Renderer>();
 
-        if (grabGripAction == null)
+        // Vérifie si le Renderer existe
+        if (screwRenderer == null)
         {
-            Debug.LogError("[GripButtonTest] GrabGrip action not found!");
-        }
-        else{
-            Debug.LogError("[GripButtonTest] GrabGrip action is found!");
-        }
-    }
-
-    private void Update()
-    {
-        // Vérifie si le bouton Grip gauche est pressé
-        if (grabGripAction != null && grabGripAction.GetState(SteamVR_Input_Sources.LeftHand))
-        {
-            Debug.Log("Grip gauche est pressé !");
-            // Tu peux ajouter ton code ici (ex : déclencher une interaction)
-        }
-        
-
-        if (grabGripAction != null && grabGripAction.state)
-        {
-            Debug.Log("Grab APUUYEEEE  !! ");
-        }
-        // Vérifie si le bouton grab est pressé et que le tournevis est en contact
-        if (isTouchingScrewdriver && grabGripAction.state)
-        {
-            Screw();
+            Debug.LogError("[ScrewInteraction] Aucun Renderer trouvé sur cet objet !");
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("[ScrewInteraction] Collision détectée avec : " + other.gameObject.name);
         if (other.CompareTag("Fin"))
         {
+            Debug.Log("[ScrewInteraction] Début de vissage.");
             isTouchingScrewdriver = true;
             screwdriverTip = other.transform;
-            Debug.Log("[ScrewInteraction] Tournevis en contact avec la vis.");
+
+            // Démarre le vissage progressif
+            if (screwingCoroutine == null)
+            {
+                screwingCoroutine = StartCoroutine(Screw());
+            }
         }
     }
-
-
 
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("[ScrewInteraction] Fin de contact avec le tournevis.");
         if (other.CompareTag("Fin"))
         {
             isTouchingScrewdriver = false;
-            screwdriverTip = null;
-            Debug.Log("[ScrewInteraction] Tournevis hors de contact.");
+
+            // Arrête la coroutine de vissage si elle est en cours
+            if (screwingCoroutine != null)
+            {
+                StopCoroutine(screwingCoroutine);
+                screwingCoroutine = null;
+            }
         }
     }
-    public void Screw()
+
+    private IEnumerator Screw()
     {
-        if (!isFullyScrewed)
+        while (!isFullyScrewed && isTouchingScrewdriver)
         {
             // Calcule la direction pour visser (vers la position cible)
             Vector3 direction = (ciblePosition.transform.position - transform.position).normalized;
@@ -98,75 +78,18 @@ public class ScrewInteraction : MonoBehaviour
                 screwedAmount = maxScrewDistance;
                 isFullyScrewed = true;
                 Debug.Log("[ScrewInteraction] Vis complètement vissée !");
+
+                // Change la couleur du matériau en vert
+                if (screwRenderer != null)
+                {
+                    screwRenderer.material.color = Color.green;
+                }
             }
+
+            yield return null; // Attend la prochaine image
         }
-    }
-}
-*/
 
-
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ScrewInteraction : MonoBehaviour
-{
-    public float screwSpeed = 50f; // Vitesse du vissage
-    public float maxScrewDistance = 0.2f; // Distance maximale pour le vissage
-    private bool isTouchingScrewdriver = false; // Indique si le tournevis est en contact
-    private Transform screwdriverTip; // Référence à l'extrémité du tournevis
-    public GameObject ciblePosition; // Position de départ de la vis
-    private float screwedAmount = 0f; // Distance totale vissée
-    private bool isFullyScrewed = false; // Indique si la vis est entièrement vissée
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("[ScrewInteraction]Collision détectée avec : " + other.gameObject.name);
-        //Debug.Log(" Debut de OnTriggerEnter");
-        if (other.CompareTag("Fin"))
-        {
-            Debug.Log("[ScrewInteraction] c est le fin de  ScrewDriver");
-            isTouchingScrewdriver = true;
-            screwdriverTip = other.transform;
-            Screw();
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("[ScrewInteraction] Debut de OnTriggerExit");
-        if (other.CompareTag("Fin"))
-        {
-            isTouchingScrewdriver = false;
-            screwdriverTip = null;
-        }
-    }
-
-    public void Screw()
-    {
-        Debug.Log("[ScrewInteraction] Debut de Screw");
-        if (isTouchingScrewdriver && !isFullyScrewed)
-        {
-            Debug.Log("[ScrewInteraction] debut de vissage ");
-            // Calcule la direction pour visser (vers la position initiale)
-            Vector3 direction = (ciblePosition.transform.position - transform.position).normalized;
-
-            // Déplace la vis vers la position cible
-            float step = screwSpeed * Time.deltaTime;
-            transform.position += direction * step;
-
-            // Met à jour la distance vissée
-            screwedAmount += step;
-
-            // Vérifie si la vis est complètement vissée
-            if (screwedAmount >= maxScrewDistance)
-            {
-                screwedAmount = maxScrewDistance;
-                isFullyScrewed = true;
-                Debug.Log("Vis complètement vissée !");
-            }
-        }
+        // Arrête la coroutine une fois la vis complètement vissée
+        screwingCoroutine = null;
     }
 }

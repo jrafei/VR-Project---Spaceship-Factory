@@ -45,8 +45,8 @@ public class CoreCounter : MonoBehaviour
         if (counterText != null)
             counterText.text = counter.ToString("F1");
 
-        // Vérifie si tous les objets requis sont attachés
-        if (IsAllComponentsAttached())
+        // Vérifie si tous les objets requis sont attachés et les vis serrées
+        if (IsAllComponentsAttached() && AreAllScrewsFullyTightened())
         {
             isReady = true;
 
@@ -61,7 +61,7 @@ public class CoreCounter : MonoBehaviour
                     script.enabled = true;
             }
 
-            Debug.Log("Tous les composants sont attachés. Core prêt.");
+            Debug.Log("Tous les composants sont attachés et les vis sont serrées. Core prêt.");
         }
     }
 
@@ -82,6 +82,50 @@ public class CoreCounter : MonoBehaviour
         foreach (Transform child in attachPoint)
         {
             if (child.CompareTag(requiredTag))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool AreAllScrewsFullyTightened()
+    {
+        bool screwL = CheckScrewTightness("screw_l");
+        bool screwR = CheckScrewTightness("screw_r");
+        bool screwThruster = CheckScrewTightness("screw_thruster");
+
+        Debug.Log(screwL);
+
+        Debug.Log(screwR);
+
+        Debug.Log(screwThruster);
+
+        return screwL && screwR && screwThruster;
+    }
+
+    private bool CheckScrewTightness(string requiredTag)
+    {
+        return CheckScrewTightnessRecursive(transform, requiredTag);
+    }
+
+    private bool CheckScrewTightnessRecursive(Transform currentTransform, string requiredTag)
+    {
+        foreach (Transform child in currentTransform)
+        {
+            if (child.CompareTag(requiredTag))
+            {
+                Debug.Log("[CheckScrewTightness] Tag trouvé : " + requiredTag);
+                var screwScript = child.GetComponent<ScrewInteraction>(); // Remplacez "ScrewInteraction" par le nom exact du script utilisé
+                if (screwScript != null && screwScript.isFullyScrewed)
+                {
+                    return true;
+                }
+            }
+
+            // Appel récursif pour vérifier les enfants de cet enfant
+            if (CheckScrewTightnessRecursive(child, requiredTag))
             {
                 return true;
             }
