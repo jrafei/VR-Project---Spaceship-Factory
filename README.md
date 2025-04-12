@@ -4,4 +4,4 @@ Dans le cadre de l’UV AI38, nous avons conçu et développé une application e
 
 
 ## Apercu de l'environnement
-echo "Site_maintenance" >> .gitignore
+echo "/Site_maintenance" >> .gitignore
