@@ -4,5 +4,4 @@ Dans le cadre de l’UV AI38, nous avons conçu et développé une application e
 
 
 ## Apercu de l'environnement
-!image d'environnement](/x.png)
 <img src="/Site_maintenance.png" alt="Prévisualisation" width="500" />
